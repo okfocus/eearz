@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>EEARZ</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="OKFocus" />
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content=".png" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="image_src" href="ok_icon.png" />
+    <script src="assets/js/prefixfree.min.js"></script>
+</head>
+<style>
+* {
+    border: 0;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    background: url(assets/images/bg.jpeg)center;
+    background-size: contain;
+    color: white;
+    -webkit-perspective: 300;
+    transform-style: preserve-3d;
+}
+
+section {
+    display: flex;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+@keyframes flash {
+    50% {
+        -webkit-filter: invert(100%);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: scale(0.8)rotateY(0deg)rotateZ(0deg);
+    }
+    to {
+        transform: scale(0.8)rotateY(360deg)rotateZ(360deg);
+    }
+}
+
+section > a,
+section > div {
+    flex-grow: 3;
+    height: 80vh;
+    background-size: auto 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.3s background-size;
+}
+
+section > a:hover,
+section > div:hover {
+    background-size: 100% 100%!important;
+}
+
+section.smaller > a,
+section.smaller > div {
+    height: 10vh;
+    border: 4px solid black;
+}
+
+section > a:nth-child(2n+2) {
+    color: white;
+}
+
+section:nth-child(2) a {}
+
+section:nth-child(2) a.flash {
+    animation: 0.2s flash infinite;
+}
+
+section:nth-child(2) a:nth-child(2) {
+    background-image: url(assets/images/eearz-logo-black.svg);
+    background-size: contain;
+    animation: 4s rotate infinite linear;
+    pointer-events: none;
+}
+
+.press {
+    display: none;
+}
+
+.pressactive .press {
+    display: flex;
+    position: absolute;
+    top: 10vh;
+    width: 100%;
+}
+
+section.press a {
+    padding: 20px;
+    height: 80vh;
+    background-size: 20% auto;
+    background-color: white;
+}
+
+div.presstoggle {
+    background-image: url(assets/images/press.png);
+    background-color: black;
+}
+
+.pressactive div.presstoggle {
+    background-image: url(assets/images/closepress.png);
+    background-color: black;
+    animation: 0.2s flash infinite;
+}
+
+@media only screen and (max-width: 500px) {
+    section.smaller a {
+        background-size: auto 15px!important;
+    }
+    section:nth-child(2) a {
+        background-image: url();
+    }
+    section.press a {
+        background-size: 80% auto;
+    }
+    section > a,
+    section > div {
+        background-size: auto 20px;
+    }
+    body {
+        background-size: cover;
+    }
+}
+</style>
+
+<body>
+    <section class="smaller top">
+        <a href="https://twitter.com/eearz_" style="background-image:url(assets/images/okok.png);background-color:white;"></a>
+        <a href="https://instagram.com/eearz/" style="background-image:url(assets/images/insta.png);background-color:black;"></a>
+        <a href="https://itunes.apple.com/us/album/eearz-2-da-streets-vol.-1/id1047983272" style="background-image:url(assets/images/applemusic.png);background-color:white;"></a>
+    </section>
+    <section>
+        <a href="https://itunes.apple.com/us/album/eearz-2-da-streets-vol.-1/id1047983272" class="flash"></a>
+        <a href="https://itunes.apple.com/us/album/eearz-2-da-streets-vol.-1/id1047983272"></a>
+        <a href="https://itunes.apple.com/us/album/eearz-2-da-streets-vol.-1/id1047983272" class="flash"></a>
+    </section>
+    <section class="smaller">
+        <div class="presstoggle"></div>
+        <a href="mailto:eearzbooking@gmail.com?subject=Earz Booking" style="background-image:url(assets/images/contact.png);background-color:white;"></a>
+    </section>
+    <section class="hidden press">
+        <a href="http://www.hotnewhiphop.com/eearz-eearz-to-da-streets-new-mixtape.116064.html" style="background-image:url(http://st.ulximg.com/static/images/logo-hnhh-header.gif);background-color:black;"></a>
+        <a href="http://www.xxlmag.com/rap-music/new-music/2015/09/listen-eearz-work-ya-muscle/" style="background-image:url(http://xxlmag.production.townsquareblogs.com/files/2015/08/logo2.png);background-color:red;"></a>
+        <a href="http://www.bet.com/news/music/2015/09/30/eearz-eearz-to-da-streets-release-date.html" style="background-image:url(http://www1.betstatic.com/etc/designs/betcom/img/logo.png);background-color:#eee;"></a>
+        <a href="http://www.thefader.com/2015/09/03/earz-work-ya-muscle" style="background-image:url(https://upload.wikimedia.org/wikipedia/en/c/c9/FADER-logo.jpg)"></a>
+    </section>
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$('.presstoggle').click(function() {
+    $('body').toggleClass('pressactive');
+});
+
+$('div span').click(function(e) {
+    $(this).closest("div").removeClass("active");
+    e.stopPropagation();
+});
+</script>
+
+</html>
