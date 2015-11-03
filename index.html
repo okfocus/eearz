@@ -129,6 +129,72 @@ div.presstoggle {
     animation: 0.2s flash infinite;
 }
 
+#signup {
+    width: 300px;
+    border: 0;
+    outline: 0;
+    position: absolute;
+    display: table;
+    top: 50%;
+    left: 50%;
+    margin-top: -120px;
+    margin-left: -150px;
+    z-index: 8;
+    height: 0px;
+    transition: 1s opacity 1000ms cubic-bezier(0.575, 0.030, 0.200, 0.980);
+    padding-top: 0;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.6);
+    -webkit-overflow-scrolling: touch;
+    padding: 20px;
+}
+
+#signup * {
+    width: 100%;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 24px;
+}
+
+.showSignup #signup {
+    transform: translateY(-10px);
+}
+
+#form {
+    display: block;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#form input[type="text"] {
+    vertical-align: top;
+    outline: 0;
+    font-size: 16px;
+    padding: 5px;
+    border-bottom: 1px solid;
+}
+
+#form input[type="submit"] {
+    background: black;
+    color: white;
+    text-transform: uppercase;
+    padding: 6px 5px;
+    vertical-align: top;
+    outline: 0;
+    font-size: 20px;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+#thanks {
+    opacity: 0;
+    transition: opacity 1000ms cubic-bezier(0.575, 0.030, 0.200, 0.980);
+}
+
 @media only screen and (max-width: 500px) {
     section.smaller a {
         background-size: auto 15px!important;
@@ -170,6 +236,21 @@ div.presstoggle {
         <a href="http://www.bet.com/news/music/2015/09/30/eearz-eearz-to-da-streets-release-date.html" style="background-image:url(http://www1.betstatic.com/etc/designs/betcom/img/logo.png);background-color:#eee;"></a>
         <a href="http://www.thefader.com/2015/09/03/earz-work-ya-muscle" style="background-image:url(https://upload.wikimedia.org/wikipedia/en/c/c9/FADER-logo.jpg)"></a>
     </section>
+    <div id="signup">
+        <form id="form" class="lol ani">
+            <h1>SIGN UP TO GET EXCLUSIVE CONTENT</h1>
+            <div id="fields">
+                <input type="text" id="email_submit" placeholder="enter your email">
+                <input type="text" id="zipcode" placeholder="zipcode">
+                <br>
+                <input type="submit" value="Submit">
+                <br>
+            </div>
+            <div id="thanks">
+                Thanks!
+            </div>
+        </form>
+    </div>
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
@@ -180,6 +261,24 @@ $('.presstoggle').click(function() {
 $('div span').click(function(e) {
     $(this).closest("div").removeClass("active");
     e.stopPropagation();
+});
+
+var emailRegex = new RegExp("[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z\.+_]+\.[a-zA-Z]{2,4}")
+$("#form").submit(function(e) {
+    e.preventDefault()
+    var email = $("#email_submit").val()
+    var zipcode = $("#zipcode").val()
+    if (!email.match(emailRegex)) {
+        alert("Not a real email address..")
+        return
+    }
+    var data = {}
+    data['entry.1642843902'] = email
+    data['entry.149160671'] = zipcode
+    data['submit'] = "Submit"
+    $.get("https://docs.google.com/a/okfoc.us/forms/d/1XhwSHQaYBH0b2WjEY6yp5dLAbpTs-3tjmW9w3c2OlPA/formResponse", data)
+    $("#signup").css("opacity", "0")
+    $("#thanks").css("opacity", "1")
 });
 </script>
 
