@@ -193,6 +193,7 @@ div.presstoggle {
 #thanks {
     opacity: 0;
     transition: opacity 1000ms cubic-bezier(0.575, 0.030, 0.200, 0.980);
+    position: absolute; top: 7px; left: 0;
 }
 
 @media only screen and (max-width: 500px) {
@@ -246,10 +247,10 @@ div.presstoggle {
                 <input type="submit" value="Submit">
                 <br>
             </div>
-            <div id="thanks">
-                Thanks!
-            </div>
         </form>
+        <div id="thanks">
+            Thanks!
+        </div>
     </div>
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -273,11 +274,11 @@ $("#form").submit(function(e) {
         return
     }
     var data = {}
-    data['entry.1642843902'] = email
-    data['entry.149160671'] = zipcode
+    data['entry.1416199077'] = email
+    data['entry.2107013791'] = zipcode
     data['submit'] = "Submit"
-    $.get("https://docs.google.com/forms/d/1XhwSHQaYBH0b2WjEY6yp5dLAbpTs-3tjmW9w3c2OlPA/formResponse", data)
-    $("#signup").css("opacity", "0")
+    $.post("https://docs.google.com/forms/d/1E8eHVh6gZ6zpoiXX-ZIzco7vNx_qo4hWW2B32aXnYB4/formResponse", data)
+    $("#form").hide() // css("opacity", "0")
     $("#thanks").css("opacity", "1")
 });
 </script>
